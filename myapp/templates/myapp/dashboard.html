@@ -1,0 +1,85 @@
+{% extends 'myapp/base.html' %}
+
+{% load static %}
+
+{% comment %} {% block msg %}
+     {% if messages %}
+        {% for message in messages %}
+            <div {% if message.tags %} class='alert alert-{{message.tags}} alert-dismissible fade show' {% endif %}>
+                <strong>{{message}}</strong> 
+                <button type='button' class='close' data-dismiss='alert' aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        {% endfor %}
+    {% endif %} 
+         
+{% endblock msg %} {% endcomment %}
+
+{% comment %} Side Profile {% endcomment %}
+
+
+{% comment %} Content Area {% endcomment %}
+{% block start %}
+
+
+    <div class="col-sm-12">
+        <h3 class="text-info mt-5">Welcome to Dashboard, <span class="text-danger">{{fname}}</span>  </h3>
+        {% for group in groups %}
+            <p class="bg-info text-light p-2">{{group.name}}</p>
+        {% endfor %}
+        
+
+
+        <a href="{% url 'addnewpost' %}" class='btn btn-success'>Add Post</a>
+
+
+        <h4 class="text-center alert alert-info mt-3 ">Show Post Information</h4>
+
+        {% if posts %}
+
+            <table class="table table-hover bg-white">
+                <thead>
+                    <tr class="text-center">
+                        <th scope='col' style='width:2%'>ID</th>
+                        <th scope='col' style='width:28%'>Title</th>
+                        <th scope='col' style='width:55%'>Description</th>
+                        <th scope='col' style='width:15%'>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for post in posts %}
+                        <tr>
+                            <th scope="row">{{post.post_id}}</th>
+                            <td>{{post.title}}</td>
+                            <td>{{post.content|slice:"0:350"}}.....</td>
+                            <td class="text-center">
+
+                                <a href="{% url 'update' post.post_id %}" class="btn btn-outline-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+
+                                {% if perms.post.delete %}
+                                    <form action="{% url 'delete' post.post_id %}" method="post" class="d-inline">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                                            <i class="fa-solid fa-trash-can"></i> 
+                                        </button>
+                                    </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+            {% else %} 
+            <h4 class="text-center alert alert-warning mt-3">No Records</h4>
+
+        {% endif %}
+
+    </div>
+
+{% endblock start %}
+
+
+

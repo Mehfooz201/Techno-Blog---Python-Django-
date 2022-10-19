@@ -1,0 +1,34 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}   <title> Add New Post </title>   {% endblock title %}
+
+{% block start %}
+         
+
+<div class="col-sm-12">
+    <h3 class="text-success my-5">Dashboard / Add Post</h3>
+
+    <form action="" method="POST" enctype="multipart/form-data" class="mb-5">
+        {% csrf_token %}
+
+        {{form|crispy}}
+
+        <input type="submit" class="btn btn-success btn-sm " value="Add">
+        <a href="{% url 'dashboard' %}" class='btn btn-outline-success btn-sm'>Dashboard</a>
+
+        <br>
+        {% if messages %}
+            {% for message in messages %}
+                <p {% if message.tags %} class='alert alert-{{message.tags}} my-4' {% endif %}>{{message}}</p>
+            {% endfor %}
+        {% endif %} 
+
+
+    </form>
+   
+</div>
+
+{% endblock start %}
+

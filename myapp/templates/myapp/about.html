@@ -1,0 +1,73 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block title %}   <title> About Me </title>   {% endblock title %}
+
+{% block start %}
+         
+
+
+    <!-- Page Header Start -->
+    <div class="container py-5 px-2 bg-primary">
+        <div class="row py-5 px-4">
+            <div class="col-sm-6 text-center text-md-left">
+                <h1 class="mb-3 mb-md-0 text-white text-uppercase font-weight-bold">About Me</h1>
+            </div>
+            <div class="col-sm-6 text-center text-md-right">
+                <div class="d-inline-flex pt-2">
+                    <h4 class="m-0 text-white"><a class="text-white" href="">Home</a></h4>
+                    <h4 class="m-0 text-white px-2">/</h4>
+                    <h4 class="m-0 text-white">About Me</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- About Start -->
+    <div class="container bg-white pt-5">
+        <div class="row px-3 pb-5">
+            <div class="col-md-12">
+                <h2 class="mb-4 font-weight-bold">Python | Django Developer | Wordpress</h2>
+                <img class="img-fluid float-left w-50 mr-4 mb-3" src="{% static 'img/me.jpeg' %}" alt="Image">
+                <p class="m-0">
+                     <i>Hello There,</i>
+                      <br>
+                      <br>
+
+                        <strong> I'm Mehfooz.</strong> For the past 02 years, I have been a Professional WordPress Developer. I am also well-known and well-liked as a Elementor expert .
+
+                        <br>
+                        <br>
+                        ⚡ Recently, I'm a working on Python Django Developer, WordPress Developer & Graphics Designer with wide set of related skills. Mainly Python, Django, HTML, CSS, JavaScript and Bootstrap & MYSQL.
+
+                        <br>
+                        <br>
+                        ⭐ Web Developer with 1+ years of experience in developing user interfaces, debugging, and training staff within eCommerce technologies. My experiences range from building responsive web and mobile sites that work well cross-browser to building scalable sites for the financial services industry.
+
+                        <br>
+                        <br>
+                        ⭐ Available to work on big projects, on-going projects, and quick modifications. If you have any query just knock my inbox. Lets get started.
+
+                </p>
+            </div>
+            <div class="col-md-12 pt-4">
+                <div class="d-flex flex-column skills">
+                    <div class="progress w-100 mb-4">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">Development</div>
+                    </div>
+                    <div class="progress w-100 mb-4">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">Designing</div>
+                    </div>
+                    <div class="progress w-100">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">Researching</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+{% endblock start %}
